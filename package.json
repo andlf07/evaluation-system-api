@@ -14,7 +14,7 @@
   "devDependencies": {
     "@types/mongodb": "^4.0.7",
     "@types/mongoose": "^5.11.97",
-    "nodemon": "^2.0.13",
+    "nodemon": "^2.0.13"
   },
   "dependencies": {
     "typescript": "^4.4.4",

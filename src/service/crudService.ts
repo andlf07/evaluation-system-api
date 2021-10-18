@@ -14,42 +14,42 @@ export default class CrudService {
    }
 
    async getAllCollection(): Promise<object> {
-      this.db.connect();
+      await this.db.connect();
       const getCollection = await this.model.find();
-      this.db.closeDB();
+      await this.db.closeDB();
 
       return getCollection;
    }
 
    async getSingleDoc( id: string ): Promise<object> {
-      this.db.connect();
+      await this.db.connect();
       const singleDoc = await this.model.findById( id );
-      this.db.closeDB();
+      await this.db.closeDB();
 
       return singleDoc;
    }
 
    async postDoc( data: object ): Promise<object> {
-      this.db.connect();
+      await this.db.connect();
       const createDoc = await new this.model( data );
       await createDoc.save();
-      this.db.closeDB();
+      await this.db.closeDB();
 
       return createDoc;
    }
 
    async putDoc( id: string, data: object ): Promise<object> {
-      this.db.connect();
+      await this.db.connect();
       const putDoc = await this.model.findByIdAndUpdate( id, data, { new: true});
-      this.db.closeDB();
+      await this.db.closeDB();
 
       return putDoc;
    }
 
    async deleteDoc( id: string ): Promise<object> {
-      this.db.connect();
+      await this.db.connect();
       const deleteDoc = await this.model.findByIdAndDelete( id );
-      this.db.closeDB();
+      await this.db.closeDB();
 
       return deleteDoc;
    }

@@ -38,7 +38,7 @@ export default class TestService {
    };
 
    async createTest( topic: string, count: number ): Promise<Test> {
-      this.db.connect();
+     await this.db.connect();
       const findQuestions = await this.questionModel.find({ topic: topic }).limit(count);
 
       const questionIds = findQuestions.map((x: any) => x._id);
@@ -55,15 +55,15 @@ export default class TestService {
 
       const testPopulate = await this.testModel.findOne({ _id: createTest._id}).populate('questions')
 
-      this.db.closeDB();
+      await this.db.closeDB();
 
       return testPopulate;
    };
 
    async getAndVerifyTest( id: string ): Promise<Test> {
-      this.db.connect();
+      await this.db.connect();
       const findTest = await this.testModel.findOne({ _id: id }).populate('questions')
-      this.db.closeDB();
+      await this.db.closeDB();
 
       return findTest;
    };

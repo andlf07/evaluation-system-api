@@ -1,4 +1,4 @@
-import { Request, Response } from "express";
+import { json, Request, Response } from "express";
 import TestService from "../service/testService";
 
 const testService = new TestService();
@@ -9,7 +9,7 @@ export const createTest = async ( req: Request, res: Response ) => {
    let limit = Number(count)
 
    if (limit < 5) {
-      return res.status(202).json({
+      return res.status(400).json({
          error: 'The number of question for the test has to be at least 5'
       });
    };
@@ -47,11 +47,15 @@ export const verifyTest = async ( req: Request, res: Response ) => {
 
    try {
       const findTest = await testService.getAndVerifyTest( id );
+
+      if(findTest === null) res.status(404).json({
+         error: 'Test dont exist'
+      });
+
       let { questions, bad, good } = findTest;
 
       questions.forEach(element => {
          for ( let answer of answers ) {
-            console.log(1)
             if(element._id.toString() === answer.id_question ) {
                element.correctAnswer === answer.answer ? good++ : bad++
                break;

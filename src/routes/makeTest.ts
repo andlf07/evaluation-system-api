@@ -10,4 +10,4 @@ testMaker.get('/:topic/:count', ctrl.createTest)
 
 
 //verify test
-testMaker.get('/', validationHandler(testCheckSchema),ctrl.verifyTest);
+testMaker.post('/', validationHandler(testCheckSchema),ctrl.verifyTest);

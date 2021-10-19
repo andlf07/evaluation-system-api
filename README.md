@@ -1,6 +1,6 @@
 ## **evaluation-system API**
 
-**This API** was developed for the program of Platzi, Platzi Master as test of the first week of the program, Diagnostic Week
+**This API** was developed for the program of Platzi.
 
 **Was build Node.Js + TypeScript + Express, MongoAtlas** 
 
@@ -50,7 +50,7 @@ the **Schema** you need
     }
 
 **DEPLOY**
-Download the project and
+Download the project
 
     npm install
 After that you must edit the `.env` file

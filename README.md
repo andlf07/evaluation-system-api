@@ -62,4 +62,4 @@ After that you must edit the `.env` file
     MONGO_DB_NAME=<db name>
     MONGO_CONNECTION=mongodb+srv:
 Link heroku https://evaluation-system-api.herokuapp.com/
-![EndPoint /api/test/:topic/:count](https://imgur.com/a/ndG6qzQ)
+![EndPoint /api/test/:topic/:count](https://i.imgur.com/RZJgzn2.png)
